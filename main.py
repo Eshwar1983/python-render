@@ -1,16 +1,10 @@
 import os
 from fastapi import FastAPI
 from pymongo import MongoClient
-from fastapi.middleware.cors import CORSMiddleware
+from flask_cors import CORS
 
 app = FastAPI()
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins, # Use ["*"] to allow all origins
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+CORS(app)
 
 # Get URI from Render Environment Variables
 MONGO_URI = os.getenv("MONGO_URI")
