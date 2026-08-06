@@ -14,4 +14,4 @@ collection = db["students"]
 @app.get("/data")
 def get_data():
   documents = list(collection.find({}, {"_id": False}))
-  return {"data": documents}
+  return {documents}
